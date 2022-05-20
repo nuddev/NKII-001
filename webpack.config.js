@@ -38,12 +38,23 @@ module.exports = {
         ],
       },
       {
-        test: /\.(less|css)$/i,
+        test: /\.less$/,
         use: [
-          // compiles Less to CSS
-          "style-loader",
-          "css-loader",
-          "less-loader",
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+          },
+          {
+            loader: "less-loader", // compiles Less to CSS
+            options: {
+              lessOptions: {
+                modifyVars: {},
+                javascriptEnabled: true,
+              },
+            },
+          },
         ],
       },
     ],
