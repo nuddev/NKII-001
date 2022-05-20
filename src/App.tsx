@@ -1,8 +1,20 @@
 import { Button } from "antd";
 import * as React from "react";
-import { hot } from "react-hot-loader";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.less";
+import Home from "./page/Home";
+import Login from "./page/Login";
 const App: React.FC = () => {
-  return <Button type="link">Link Button</Button>;
+  return (
+    <BrowserRouter>
+      <div>
+        <h1>Hello, React Router!</h1>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 };
-export default hot(module)(App);
+export default App;

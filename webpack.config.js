@@ -1,5 +1,4 @@
 const { resolve } = require("path");
-const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -60,7 +59,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
@@ -68,5 +66,6 @@ module.exports = {
   ],
   devServer: {
     hot: true,
+    historyApiFallback: true,
   },
 };
