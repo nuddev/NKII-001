@@ -2,8 +2,8 @@ import { Button } from "antd";
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.less";
-import Home from "./page/Home";
-import Login from "./page/Login";
+import Home from "@page/Home";
+import Login from "@page/Login";
 const App: React.FC = () => {
   return (
     <BrowserRouter>

@@ -2,9 +2,8 @@ const { resolve } = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
-
+const path = require('path');
 module.exports = (env) => {
-  console.log( `./environments/.env${env.mode ? `.${env.mode}` : ""}`)
   return {
     entry: "./src/index.tsx",
     output: {
@@ -13,6 +12,12 @@ module.exports = (env) => {
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js"],
+      alias: {
+        '@': path.resolve(__dirname, 'src/'),
+        '@page': path.resolve(__dirname, 'src/page/'),
+        '@models': path.resolve(__dirname, 'src/models/'),
+        '@utils': path.resolve(__dirname, 'src/utils/'),
+      }
     },
     module: {
       rules: [
