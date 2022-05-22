@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack serve --mode development  --open --env=mode=dev",
     "build": "webpack"
   },
   "devDependencies": {
@@ -12,6 +12,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^4.0.0",
+    "dotenv-webpack": "^7.1.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "less": "^4.1.2",
