@@ -7,6 +7,7 @@ module.exports = (env) => {
   return {
     entry: "./src/index.tsx",
     output: {
+      publicPath: '/',
       filename: "bundle.js",
       path: resolve(__dirname, "dist"),
     },
