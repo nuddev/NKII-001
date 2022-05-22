@@ -3,14 +3,23 @@ import { RouterItem } from "@/models/Router";
 import Home from "@/page/Home";
 import React from "react";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
-
-const routes: Array<RouterItem> = [
+import {
+  MenuFoldOutlined,
+  UploadOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+export const routes: Array<RouterItem> = [
   {
     path: "/",
     component: <Home />,
+    key: "home",
+    hidden: true,
   },
   {
     path: "/dashboard",
+    label: "Dashboard",
+    key: "dashboard",
+    icon: <MenuFoldOutlined />,
     component: (
       <MainLayout>
         <Outlet />
@@ -18,16 +27,20 @@ const routes: Array<RouterItem> = [
     ),
     children: [
       {
-        index: true,
         component: <Link to={"/dashboard/step2"}>step2</Link>,
+        key: "/dashboard/dashboard-2",
+        path:"dashboard-2",
+        icon: <UploadOutlined />,
+        label: "dashboard-2",
+        to:"/dashboard/dashboard-2",
       },
       {
-        path: "step2",
-        component: <Link to={"/dashboard/step3"}>step3</Link>,
-      },
-      {
-        path: "step3",
-        component: <Link to={"/dashboard"}>step1</Link>,
+        component: <Link to={"/dashboard/step2"}>step2</Link>,
+        label: "dashboard-3",
+        key: "/dashboard/dashboard-3",
+        path:"dashboard-3",
+        to:"/dashboard/dashboard-3",
+        icon: <UserOutlined />,
       },
     ],
   },
@@ -44,7 +57,6 @@ const createRoute = (e: RouterItem) => {
     </Route>
   );
 };
-const RenderRoute = () => {
+export const RenderRoute = () => {
   return <Routes>{routes.map((e) => createRoute(e))}</Routes>;
 };
-export default RenderRoute;
