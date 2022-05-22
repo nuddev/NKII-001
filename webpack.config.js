@@ -17,6 +17,7 @@ module.exports = (env) => {
         '@page': path.resolve(__dirname, 'src/page/'),
         '@models': path.resolve(__dirname, 'src/models/'),
         '@utils': path.resolve(__dirname, 'src/utils/'),
+        '@config': path.resolve(__dirname, 'src/config/'),
       }
     },
     module: {
