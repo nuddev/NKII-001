@@ -2,24 +2,24 @@ const { resolve } = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
-const path = require('path');
+const path = require("path");
 module.exports = (env) => {
   return {
     entry: "./src/index.tsx",
     output: {
-      publicPath: '/',
+      publicPath: "/",
       filename: "bundle.js",
       path: resolve(__dirname, "dist"),
     },
     resolve: {
       extensions: [".tsx", ".ts", ".js"],
       alias: {
-        '@': path.resolve(__dirname, 'src/'),
-        '@page': path.resolve(__dirname, 'src/page/'),
-        '@models': path.resolve(__dirname, 'src/models/'),
-        '@utils': path.resolve(__dirname, 'src/utils/'),
-        '@config': path.resolve(__dirname, 'src/config/'),
-      }
+        "@": path.resolve(__dirname, "src/"),
+        "@page": path.resolve(__dirname, "src/page/"),
+        "@models": path.resolve(__dirname, "src/models/"),
+        "@utils": path.resolve(__dirname, "src/utils/"),
+        "@config": path.resolve(__dirname, "src/config/"),
+      },
     },
     module: {
       rules: [
@@ -47,16 +47,19 @@ module.exports = (env) => {
           ],
         },
         {
-          test: /\.less$/,
+          test: /\.(sass|less|css)$/,
           use: [
             {
               loader: "style-loader",
             },
             {
-              loader: "css-loader", // translates CSS into CommonJS
+              loader: "css-loader",
             },
             {
-              loader: "less-loader", // compiles Less to CSS
+              loader: "postcss-loader",
+            },
+            {
+              loader: "less-loader",
               options: {
                 lessOptions: {
                   modifyVars: {},
@@ -70,7 +73,7 @@ module.exports = (env) => {
           test: /\.svg$/,
           use: [
             {
-              loader: 'svg-url-loader',
+              loader: "svg-url-loader",
               options: {
                 limit: 10000,
               },
@@ -92,5 +95,5 @@ module.exports = (env) => {
       hot: true,
       historyApiFallback: true,
     },
-  }
+  };
 };
