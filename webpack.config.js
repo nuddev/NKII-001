@@ -19,6 +19,7 @@ module.exports = (env) => {
         "@models": path.resolve(__dirname, "src/models/"),
         "@utils": path.resolve(__dirname, "src/utils/"),
         "@config": path.resolve(__dirname, "src/config/"),
+        "@images": path.resolve(__dirname, "src/assets/images/"),
       },
     },
     module: {

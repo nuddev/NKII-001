@@ -8,10 +8,11 @@ import {
   UploadOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import Login from "@/page/Login";
 export const routes: Array<RouterItem> = [
   {
     path: "/",
-    component: <Home />,
+    component: <Login />,
     key: "home",
     hidden: true,
   },
